@@ -2,312 +2,83 @@
 <html lang="bn">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>বিদ্রোহী প্রাণ | DeAr</title>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1a1a1a;
-            --accent: #e67e22;
-            --bg: #f4f7f6;
-            --text: #333;
-            --white: #ffffff;
-            --card-bg: #ffffff;
-        }
-        
-        body.dark-mode {
-            --bg: #121212;
-            --text: #e0e0e0;
-            --card-bg: #1e1e1e;
-            --white: #000000;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            transition: 0.3s;
-        }
-        
-        body {
-            font-family: 'Hind Siliguri', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        /* Nav */
-        nav {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .brand-name {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
-        
-        #theme-toggle {
-            background: var(--accent);
-            border: none;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-        
-        /* Hero Section with Poem */
-        header {
-            min-height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        
-        .hero-poem {
-            max-width: 800px;
-            font-size: 1.2rem;
-            font-style: italic;
-            line-height: 1.8;
-            border-left: 3px solid var(--accent);
-            padding-left: 20px;
-            margin-top: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            white-space: pre-line;
-        }
-        
-        .filter-section {
-            text-align: center;
-            padding: 50px 20px 20px;
-        }
-        
-        .btn {
-            padding: 10px 25px;
-            margin: 5px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            background: var(--card-bg);
-            color: var(--text);
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn.active {
-            background: var(--accent);
-            color: white;
-        }
-        
-        #content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto 50px;
-            padding: 0 20px;
-        }
-        
-        .card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 15px;
-            border-bottom: 4px solid var(--accent);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 650px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-        }
-        
-        .close-modal {
-            position: absolute;
-            right: 25px;
-            top: 15px;
-            font-size: 35px;
-            cursor: pointer;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: #000;
-            color: #888;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>বিদ্রোহী | শব্দশিল্প</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    
-    <nav>
-        <a href="#" class="brand-name">শব্দশিল্প</a>
-        <div style="display:flex; gap:15px; align-items:center;">
-            <button id="theme-toggle">ডার্ক মোড</button>
-        </div>
-    </nav>
-    
-    <header>
-        <h1 style="font-size: 3.5rem; color: var(--accent);">বিদ্রোহী কন্ঠ</h1>
-        <div class="hero-poem">
-            "আমি আদিম উন্মাদ, আমি অবাধ্য এক ঢেউ,
-            আমার পথ আগলে দাঁড়াবে— এমন আছে কেউ?
-            আমি শৃঙ্খল ভাঙার গান গাই বারে বারে,
-            আমি বজ্রের হুঙ্কার শুনিয়ে যাই রুদ্ধ দ্বারে।"
-        </div>
-        <a href="#works" style="margin-top:30px; color:white; text-decoration:none; border: 1px solid white; padding: 10px 25px; border-radius: 5px;">নিচে আরও দেখুন</a>
-    </header>
-    
-    <section id="works" class="filter-section">
-        <h2 style="margin-bottom:20px;">আমার সৃষ্টিকর্ম</h2>
-        <button class="btn active" onclick="filterData('all', this)">সবগুলো</button>
-        <button class="btn" onclick="filterData('poem', this)">কবিতা</button>
-        <button class="btn" onclick="filterData('song', this)">গান</button>
-        <button class="btn" onclick="filterData('story', this)">গল্প</button>
-    </section>
-    
-    <main id="content-grid"></main>
-    
-    <div id="textModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle" style="color:var(--accent);"></h2>
-            <hr style="margin: 20px 0; opacity: 0.2;">
-            <p id="modalBody" style="white-space: pre-line; font-size: 1.1rem;"></p>
-        </div>
+  <nav>
+    <a href="#" class="brand-name">শব্দশিল্প</a>
+    <button id="theme-toggle">ডার্ক মোড</button>
+  </nav>
+  
+  <header>
+    <h1 style="font-size: 3.5rem; color: var(--accent);">বিদ্রোহী কন্ঠ</h1>
+    <div class="hero-poem">
+      "আমি আদিম উন্মাদ, আমি অবাধ্য এক ঢেউ,
+      আমার পথ আগলে দাঁড়াবে— এমন আছে কেউ?"
     </div>
-    
-    <footer>
-        <p>&copy; 2026 DeAr | শব্দে সাজানো জীবন</p>
-    </footer>
-    
-    <script>
-        const data = [
-            {
-                title: "বিদ্রোহী কন্ঠ (পূর্ণাঙ্গ)",
-                cat: "poem",
-                text: `আমি আদিম উন্মাদ, আমি অবাধ্য এক ঢেউ,
-            আমার পথ আগলে দাঁড়াবে— এমন আছে কেউ?
-            আমি শৃঙ্খল ভাঙার গান গাই বারে বারে,
-            আমি বজ্রের হুঙ্কার শুনিয়ে যাই রুদ্ধ দ্বারে।
-
-            আমি ধূলিকণা নই যে পদতলে পিষ্ট হব,
-            আমি আগ্নেয়গিরি, শুধু লাভা হয়ে ঝরিব।
-            আমি সেই সত্য যা মিথ্যার বিনাশ চায়,
-            আমি সেই ঝড় যা জঞ্জাল উড়িয়ে নিয়ে যায়।
-
-            আমি উল্কাপাত, আমি অন্ধকারের ত্রাস,
-            আমি শোষকের বুকে জাগাই দীর্ঘশ্বাস।
-            যুগ যুগান্তরের ক্লান্তি ঝেড়ে আমি আজ উঠি,
-            মুক্তির নেশায় আমি আগামীর পানে ছুটি।
-
-            আমি বিদ্রোহী, আমি অবিনশ্বর প্রাণ,
-            আমার রক্তে মিশে আছে স্বাধীনতার গান!`
-            },
-            {
-                title: "জানালার ওপাশে তুমি)",
-                cat: "poem",
-                text: `তাকিয়ে থাকি জানালায়
-            উঁকি মেরে দেখি তোমায়,
-            মন হাসে আর বলে—
-            কখন যে ডাকো আমায়।
-            রোদমাখা ওই হাসিতে
-            মনটা যে আর নেই ঘরে,
-            অবুঝ যত স্বপ্নগুলো
-            তোমার আকাশেই ওড়ে।
-            ​বলবো ভাবি মনের কথা
-            বেধে যায় শুধু লাজে,
-            তোমার ছবিই আকাশ হয়ে
-            আমার দুচোখে বিরাজে।
-            ​একবার শুধু চেয়ে দেখো
-            ভিড় ঠেলে এই পাশে,
-            অপেক্ষার এই প্রহরগুলো
-            তোমায় বড্ড ভালোবাসে।`
-            },
-            
-            
-        ];
-        
-        function renderGrid(filter = 'all') {
-            const grid = document.getElementById('content-grid');
-            grid.innerHTML = "";
-            const filtered = filter === 'all' ? data : data.filter(item => item.cat === filter);
-            
-            filtered.forEach(item => {
-                const label = item.cat === 'poem' ? 'কবিতা' : item.cat === 'song' ? 'গান' : 'গল্প';
-                grid.innerHTML += `
-                <div class="card">
-                    <span style="font-size:0.8rem; background:var(--accent); color:white; padding:2px 8px; border-radius:10px;">${label}</span>
-                    <h3 style="margin-top:10px;">${item.title}</h3>
-                    <p style="margin:10px 0; opacity:0.8;">${item.text.substring(0, 100)}...</p>
-                    <button onclick="openModal(${data.indexOf(item)})" style="color:var(--accent); border:none; background:none; cursor:pointer; font-weight:bold; font-size:1rem;">বিস্তারিত পড়ুন →</button>
-                </div>`;
-            });
-        }
-        
-        function openModal(index) {
-            document.getElementById('modalTitle').innerText = data[index].title;
-            document.getElementById('modalBody').innerText = data[index].text;
-            document.getElementById('textModal').style.display = "flex";
-        }
-        
-        function closeModal() { document.getElementById('textModal').style.display = "none"; }
-        
-        function filterData(category, btn) {
-            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderGrid(category);
-        }
-        
-        const themeBtn = document.getElementById('theme-toggle');
-        themeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            themeBtn.innerText = document.body.classList.contains('dark-mode') ? "লাইট মোড" : "ডার্ক মোড";
-        });
-        
-        window.onclick = (e) => { if (e.target == document.getElementById('textModal')) closeModal(); }
-        window.onload = () => renderGrid('all');
-    </script>
-    
+    <a href="#works" style="color:white; text-decoration:none; border: 2px solid var(--accent); padding: 12px 30px; border-radius: 30px; font-weight: bold;">সৃষ্টিকর্ম দেখুন</a>
+  </header>
+  
+  <div class="search-container">
+    <input type="text" id="searchInput" class="search-box" onkeyup="searchContent()" placeholder="কবিতার শিরোনাম দিয়ে খুঁজুন...">
+  </div>
+  
+  <section id="works" class="filter-section">
+    <button class="btn active" onclick="filterData('all', this)">সবগুলো</button>
+    <button class="btn" onclick="filterData('poem', this)">কবিতা</button>
+    <button class="btn" onclick="filterData('story', this)">গল্প</button>
+  </section>
+  
+  <main id="content-grid"></main>
+  
+  <div id="textModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <button class="copy-btn" onclick="copyText()">লেখাটি কপি করুন 📋</button>
+        <div class="font-controls">
+          <span>ফন্ট:</span>
+          <button onclick="changeFontSize(1.4)">A+</button>
+          <button onclick="changeFontSize(1.15)">A</button>
+          <button onclick="changeFontSize(0.9)">A-</button>
+        </div>
+      </div>
+      <h2 id="modalTitle" style="color:var(--accent);"></h2>
+      <hr style="margin: 20px 0; opacity: 0.2;">
+      <p id="modalBody" style="white-space: pre-line; font-size: 1.15rem;"></p>
+    </div>
+  </div>
+  
+  <div id="aboutModal" class="modal">
+    <div class="modal-content" style="text-align: center;">
+      <span class="close-modal" onclick="closeAboutModal()">&times;</span>
+      <img src="/img/FB_IMG_1771521290616.jpg" alt="Profile" class="about-photo">
+      <h2 style="color:var(--accent);">আমার সম্পর্কে</h2>
+      <p style="margin-top: 15px; font-size: 1.1rem; opacity: 0.9;">
+        আমি একজন শব্দের কারিগর। জীবনকে দেখার ভিন্ন এক দৃষ্টিভঙ্গি থেকেই এই 'শব্দশিল্প'-এর জন্ম। এখানে আমার প্রতিটি লেখা আমার ভাবনার একেকটি বিদ্রোহী কণা। আমি বিশ্বাস করি শব্দের শক্তি দিয়ে পৃথিবী বদলে দেওয়া সম্ভব।
+      </p>
+      <hr style="margin: 20px 0; opacity: 0.2;">
+      <p>যোগাযোগ: ludbamilahirf@gmail.com </p>
+    </div>
+  </div>
+  
+  <footer>
+    <button class="about-btn" onclick="openAboutModal()">About Me</button>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/1HYMsn84uC/" target="_blank">Facebook</a>
+      <a href="https://www.youtube.com/@dearMaSuMa" target="_blank">YouTube</a>
+      <a href="https://github.com/abdulhalimirf" target="_blank">GitHub</a>
+    </div>
+    <p>&copy; 2026 love you, DeAr | শব্দে সাজানো জীবন</p>
+    <p style="font-size: 0.8rem; margin-top: 10px;">নির্মাণে: [আব্দুল হালিম]</p>
+  </footer>
+  
+<script src="script.js"></script>
 </body>
 
 </html>
