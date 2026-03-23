@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="bn">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>বিদ্রোহী | শব্দশিল্প</title>
+  <link rel="preload"  href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
+ <link  rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <a href="#" class="brand-name">শব্দশিল্প</a>
+    <button id="theme-toggle">ডার্ক মোড</button>
+  </nav>
+  
+  <header>
+    <h1 style="font-size: 3.5rem; color: var(--accent);">স্মৃতির সীমানা পেরিয়ে</h1>
+    <div class="hero-poem">
+ "কণ্ঠ এখন গভীর অনেক, মেদ জমেছে স্বরে,
+তবুও যেন সেই ছেলেটা ডাকছে আপন করে।
+বিদেশের ওই যান্ত্রিকতায় হারায়নি তো টান,
+এখনো কি গাও তোমার সেই মাটির সুরের গান?"
+    </div>
+    <a href="#works" style="color:white; text-decoration:none; border: 2px solid var(--accent); padding: 12px 30px; border-radius: 30px; font-weight: bold;">সৃষ্টিকর্ম দেখুন</a>
+  </header>
+  
+  <div class="search-container">
+    <input type="text" id="searchInput" class="search-box" onkeyup="searchContent()" placeholder="কবিতার শিরোনাম দিয়ে খুঁজুন...">
+  </div>
+  
+  <section id="works" class="filter-section">
+    <button class="btn active" onclick="filterData('all', this)">সবগুলো</button>
+    <button class="btn" onclick="filterData('poem', this)">কবিতা</button>
+    <button class="btn" onclick="filterData('story', this)">গল্প</button>
+  </section>
+  
+  <main id="content-grid"></main>
+  
+  <div id="textModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <button class="copy-btn" onclick="copyText()">লেখাটি কপি করুন 📋</button>
+        <div class="font-controls">
+          <span>ফন্ট:</span>
+          <button onclick="changeFontSize(1.4)">A+</button>
+          <button onclick="changeFontSize(1.15)">A</button>
+          <button onclick="changeFontSize(0.9)">A-</button>
+        </div>
+      </div>
+      <h2 id="modalTitle" style="color:var(--accent);"></h2>
+      <hr style="margin: 20px 0; opacity: 0.2;">
+      <p id="modalBody" style="white-space: pre-line; font-size: 1.15rem;"></p>
+    </div>
+  </div>
+  
+  <div id="aboutModal" class="modal">
+    <div class="modal-content" style="text-align: center;">
+      <span class="close-modal" onclick="closeAboutModal()">&times;</span>
+      <img src="FB_IMG_1771521290616.jpg" alt="Profile" class="about-photo">
+      <h2 style="color:var(--accent);">আমার সম্পর্কে</h2>
+      <p style="margin-top: 15px; font-size: 1.1rem; opacity: 0.9;">
+        আমি একজন শব্দের কারিগর। জীবনকে দেখার ভিন্ন এক দৃষ্টিভঙ্গি থেকেই এই 'শব্দশিল্প'-এর জন্ম। এখানে আমার প্রতিটি লেখা আমার ভাবনার একেকটি বিদ্রোহী কণা। আমি বিশ্বাস করি শব্দের শক্তি দিয়ে পৃথিবী বদলে দেওয়া সম্ভব।
+      </p>
+      <hr style="margin: 20px 0; opacity: 0.2;">
+      <p>যোগাযোগ: ludbamilahirf@gmail.com </p>
+    </div>
+  </div>
+  
+  <footer>
+    <button class="about-btn" onclick="openAboutModal()">About Me</button>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/1HYMsn84uC/" target="_blank">Facebook</a>
+      <a href="https://www.youtube.com/@dearMaSuMa" target="_blank">YouTube</a>
+      <a href="https://github.com/abdulhalimirf" target="_blank">GitHub</a>
+    </div>
+    <p>&copy; 2026 love you, DeAr | শব্দে সাজানো জীবন</p>
+    <p style="font-size: 0.8rem; margin-top: 10px;">নির্মাণে: [আব্দুল হালিম]</p>
+  </footer>
+  
+<script rel="preload" src="script.js"></script>
+</body>
+
+</html>
